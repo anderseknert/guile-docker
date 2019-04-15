@@ -16,7 +16,7 @@ RUN apt-get update && \
     cd /opt && wget https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.6.tar.xz && tar xf gnutls-3.6.6.tar.xz && \
     rm -rf gnutls-3.6.6.tar.xz && cd gnutls-3.6.6 && \
     ./configure --enable-guile --with-guile-site-dir=/usr/share/guile/site --with-included-libtasn1 --with-included-unistring && make && make install && \
-    # TODO: Run as normal user?
+    # enable readline in REPL
     printf "(use-modules (ice-9 readline))\n(activate-readline)" > /root/.guile
 
 CMD ["guile"]
